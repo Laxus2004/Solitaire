@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bktdjabe2w6by"]
+
+[ext_resource type="Texture2D" uid="uid://csp4y6xfmws0j" path="res://carda.png" id="1_q5obu"]
+[ext_resource type="Script" uid="uid://brtd623oy0u6" path="res://card.gd" id="2_e484p"]
+[ext_resource type="FontFile" uid="uid://dyi563kr8pn6m" path="res://Garp Sans Compaq.otf" id="3_fpac0"]
+
+[sub_resource type="Theme" id="Theme_1i5pp"]
+default_font = ExtResource("3_fpac0")
+default_font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5obu"]
+size = Vector2(327.052, 457.255)
+
+[node name="Card" type="Sprite2D"]
+scale = Vector2(0.403605, 0.393653)
+texture = ExtResource("1_q5obu")
+script = ExtResource("2_e484p")
+
+[node name="Number" type="RichTextLabel" parent="."]
+offset_left = -37.165
+offset_top = -45.7256
+offset_right = 12.8349
+offset_bottom = 2.27441
+scale = Vector2(2.67108, 2.7726)
+mouse_filter = 1
+theme = SubResource("Theme_1i5pp")
+text = "12"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.69202e-07, 0)
+shape = SubResource("RectangleShape2D_q5obu")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
